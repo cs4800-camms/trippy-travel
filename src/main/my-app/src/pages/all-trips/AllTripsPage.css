@@ -1,0 +1,17 @@
+body {
+    margin: 25px;
+}
+button {
+    background-color: #9f7e69 !important;
+    border:none !important;
+}
+button:hover {
+    background-color: #ac8f7d !important;
+}
+h1{
+    font-weight: bold;
+    text-align:center
+}
+form{
+    display:inline-block !important;
+}

@@ -1,0 +1,10 @@
+com/samm/trippytravel/data/requests/CreateTripRequest.class
+com/samm/trippytravel/TrippyTravelApplication.class
+com/samm/trippytravel/data/requests/CreateTripRequest$CreateTripRequestBuilder.class
+com/samm/trippytravel/data/domain/Trip.class
+com/samm/trippytravel/services/TripService.class
+com/samm/trippytravel/data/requests/UpdateTripRequest.class
+com/samm/trippytravel/controllers/TripController.class
+com/samm/trippytravel/data/requests/UpdateTripRequest$UpdateTripRequestBuilder.class
+com/samm/trippytravel/repository/TripRepository.class
+com/samm/trippytravel/data/domain/Trip$TripBuilder.class

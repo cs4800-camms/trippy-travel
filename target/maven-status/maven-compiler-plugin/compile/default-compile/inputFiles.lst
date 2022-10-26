@@ -1,0 +1,7 @@
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/data/requests/CreateTripRequest.java
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/TrippyTravelApplication.java
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/data/domain/Trip.java
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/services/TripService.java
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/repository/TripRepository.java
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/data/requests/UpdateTripRequest.java
+/Users/stephaniedeleon/dev/repo/trippy-travel/src/main/java/com/samm/trippytravel/controllers/TripController.java

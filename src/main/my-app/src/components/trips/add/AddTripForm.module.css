@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+.form {
+    display: inline-block;
+    width: 50%;
+}
+
+.input {
+    background-color: white;
+    font-weight: bold;
+}
+
+.label {
+    font-weight: bold;
+}
