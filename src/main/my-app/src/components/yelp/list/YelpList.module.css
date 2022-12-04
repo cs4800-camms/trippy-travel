@@ -1,0 +1,12 @@
+.parent {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.child {
+    max-height: 600px;
+    overflow-y: scroll;
+    display: inline-block;
+    margin: auto;
+}

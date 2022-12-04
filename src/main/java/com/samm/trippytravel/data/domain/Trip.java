@@ -2,6 +2,7 @@ package com.samm.trippytravel.data.domain;
 
 import lombok.Builder;
 import lombok.Value;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 public class Trip {
     @Id
     String _id;
-    long userId;
+    ObjectId user_id;
     String name;
     String destination;
     Date startDate;
@@ -21,7 +22,7 @@ public class Trip {
 
     public static Trip getTrips(Trip trip) {
         return Trip.builder()
-                .userId(trip.getUserId())
+                .user_id(trip.getUser_id())
                 .name(trip.getName())
                 .destination(trip.getDestination())
                 .startDate(trip.getStartDate())

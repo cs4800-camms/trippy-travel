@@ -1,0 +1,38 @@
+.activity {
+    justify-content: space-between;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.name {
+    margin: 0;
+}
+
+.todo {
+    margin: 0;
+}
+.icon {
+    font-size: 20px;
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: maroon;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+    border-color: #9f7e69;
+    box-shadow: 0 0 0 4px rgba(226, 164, 137,.25) !important;
+}
+
+.checkbox:focus {
+    box-shadow: none !important;
+}
+
+.checkbox:checked {
+    background-color: #e2a489;
+    border-color: #9f7e69;
+}

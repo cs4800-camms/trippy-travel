@@ -1,0 +1,21 @@
+.title {
+    font-size: 45px;
+}
+
+.bigtitle {
+    font-size: 120px
+}
+
+.subtitle {
+    font-size: 35px;
+}
+
+.button {
+    font-size: 200%;
+    padding: 10px 19px;
+}
+
+.titlecard {
+    padding-left: 10%;
+    padding-right: 10%;
+}

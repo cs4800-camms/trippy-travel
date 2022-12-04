@@ -1,0 +1,22 @@
+.nav {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #e2a489 !important;
+    border: none !important;
+    color: black !important;
+}
+
+.btn:hover {
+    background-color: #ebc3b3 !important;
+    color: #462b17 !important;
+}
+
+.btn:focus{
+    background-color: #ebc3b3 !important;
+}

@@ -12,7 +12,7 @@
     text-decoration: none; 
 }
 .link:hover {
-    color: black;
+    color: #E97777;
     text-decoration: underline;
 }
 .icon {
@@ -24,4 +24,8 @@
 .button {
     display:block;
     border:none;
+}
+
+.button:hover {
+    color: #E97777;
 }

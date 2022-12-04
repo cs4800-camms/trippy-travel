@@ -5,68 +5,80 @@ import Form from 'react-bootstrap/Form';
 import { useState, useContext } from "react";
 import GlobalContext from '../../../context/global';
 import axios from 'axios';
+import AuthService from '../../../services/auth.service';
+import authHeader from '../../../services/auth-header';
+import { useNavigate } from "react-router-dom";
 
-export default function AddTripForm({ onAddTrip }) {
+export default function AddTripForm() {
+    const { setTripList } = useContext(GlobalContext);
+    const user = AuthService.getCurrentUser();
+    const navigate = useNavigate();
+
     const [tripInfo, setTripInfo] = useState({
-        userId: 1,
+        user_id: user.id,
         name: "",
         destination: "",
         startDate: new Date(),
         endDate: new Date(),
     });
 
-    const { setTripList } = useContext(GlobalContext);
-
     const addTrip = (newTrip) => {
-       setTripList((oldTrips) => [newTrip, ...oldTrips]);
+        setTripList((oldTrips) => [newTrip, ...oldTrips]);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.post(`/trips/create`, tripInfo)
+        await axios.post(`/trips/create`, tripInfo, { headers: authHeader() })
             .then(function (response) {
                 console.log(response);
                 addTrip(response.data);
+                navigate(`/itinerary/${response.data._id}`);
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-        onAddTrip(tripInfo); //navigates to home page
     };
 
     return (
         <>
-            <Form class="row gy-2 gx-3 align-items-center " className={classes.form} onSubmit={handleSubmit}>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, name: e.target.value })} value={tripInfo.name} required />
-                    <label className={classes.label} for="floatingInput">Trip name</label>
-                </div>
+            <div class="container mt-4 mb-4 d-flex justify-content-center">
+                <div className={`card px-4 py-4 ${classes.card}`}>
+                    <div class="card-body">
+                        <h5 className={`card-title mb-3 ${classes.title}`}>Plan a New Trip</h5>
+                        <br></br>
+                        <Form className={classes.form} onSubmit={handleSubmit}>
+                            <div className={`form-floating mb-4 ${classes.control}`}>
+                                <input type="text" id="floatingInput" class="form-control" placeholder="e.g My trip #1" onChange={(e) => setTripInfo({ ...tripInfo, name: e.target.value })} value={tripInfo.name} required />
+                                <label class="form-label" for="floatingInput">Trip name</label>
+                            </div>
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, destination: e.target.value })} value={tripInfo.destination} required />
-                    <label className={classes.label} for="floatingInput">Where to?</label>
-                </div>
-
-                <div class="col-auto">
-                    <div class="form-floating mb-3" id="datepicker">
-                        <input type="date" class="form-control form-control-lg" onChange={(e) => setTripInfo({ ...tripInfo, startDate: e.target.value })} value={tripInfo.startDate} required />
-                        <label htmlFor="startDate" className={classes.label} for="floatingInput">Start Date</label>
+                            <div className={`form-floating mb-4 ${classes.control}`}>
+                                <input type="text" id="floatingInput" class="form-control" placeholder="e.g Paris, France" onChange={(e) => setTripInfo({ ...tripInfo, destination: e.target.value })} value={tripInfo.destination} required />
+                                <label class="form-label" for="floatingInput">Where to?</label>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div className={`form-floating mb-4 ${classes.control}`}>
+                                        <input type="date" max={tripInfo.endDate} id="floatingInput" class="form-control" onChange={(e) => setTripInfo({ ...tripInfo, startDate: e.target.value })} value={tripInfo.startDate} required />
+                                        <label htmlFor="startDate" for="floatingInput">Start date</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div className={`form-floating mb-4 ${classes.control}`}>
+                                        <input type="date" min={tripInfo.startDate} id="floatingInput" class="form-control" onChange={(e) => setTripInfo({ ...tripInfo, endDate: e.target.value })} value={tripInfo.endDate} required />
+                                        <label htmlFor="startDate" class="form-label" for="floatingInput">End date</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="col-auto">
+                                <button class="btn btn-primary btn-lg">Start Planning</button>
+                            </div>
+                        </Form>
                     </div>
                 </div>
-
-                <div class="col-auto">
-                    <div class="form-floating mb-3" id="datepicker">
-                        <input type="date" min={tripInfo.startDate} class="form-control form-control-lg" onChange={(e) => setTripInfo({ ...tripInfo, endDate: e.target.value })} value={tripInfo.endDate} required />
-                        <label htmlFor="startDate" className={classes.label} for="floatingInput">End Date</label>
-                    </div>
-                </div>
-                <br></br><br></br><br></br><br></br>
-                <div class="col-auto">
-                    <button class="btn btn-primary btn-lg">Start Planning</button>
-                </div>
-            </Form>
+            </div>
         </>
     );
 }

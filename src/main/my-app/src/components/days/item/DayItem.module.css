@@ -1,0 +1,15 @@
+.dayHeader {
+    background-color: white !important;
+    color: black !important;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+.dayHeader:hover {
+    background-color: white!important;
+}
+
+.dayHeader:focus {
+    box-shadow: 0 0 0 4px rgba(226, 164, 137,.25) !important;
+    border-color: #9f7e69 !important;
+}

@@ -1,17 +1,36 @@
+.title {
+    font-size: 25px;
+}
+
 body {
     text-align: center;
 }
 
-.form {
-    display: inline-block;
-    width: 50%;
-}
-
-.input {
+.card {
     background-color: white;
-    font-weight: bold;
+    border:none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .label {
     font-weight: bold;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+}
+
+.inputWithButton {
+  position: relative;
+}
+
+.inputWithButton i {
+  position: absolute;
+  right: 13px;
+  top : 16px;
+  font-size: 17px;
+}
+
+.inputWithButton i:hover {
+  cursor: pointer;
 }

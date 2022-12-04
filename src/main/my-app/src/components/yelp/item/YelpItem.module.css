@@ -1,0 +1,17 @@
+.card {
+    background-color: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 20rem;
+}
+
+.cardImg {
+    max-height: 200px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
